@@ -39,10 +39,10 @@ Severity for is: MEDIUM
 I am Looking for contribution for this tool,concept is pass the list of CVE ID's to the scirpt, like we pass ip list to nmap using iL flag. and expected output is below.
 
 ______________________________________________________________________
-|CVE Details 	|	CVSS Score3 Score.       | CVSS Score2 Score     |
-|				|            				 |				         |
-|CVE-2017-1337 	|	Severity |  CVSS Score	 | Severity | CVSS Score |
-|				|     High   |	8.1			 |	Medium  |      4.3   |           
+|CVE Details 	|	CVSS Score3 Score.   | CVSS Score2 Score     |
+|		|            		     |			     |
+|CVE-2017-1337 	|   Severity |  CVSS Score   | Severity | CVSS Score |
+|		|     High   |	8.1	     | Medium   |      4.3   |           
 |---------------------------------------------------------------------
  
 ```
