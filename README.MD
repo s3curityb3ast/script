@@ -46,5 +46,76 @@ ______________________________________________________________________
 |---------------------------------------------------------------------
  
 ```
+
+* cve2rating.sh
+	Wrapper for cve2rating.py for running tool on multiple cves and obtaining the CVSS2 7 3 score
+
+```
+usage: ./cve2rating.sh cves.txt
+Output: cat result.txt 
+('CVE Details for', 'CVE-2016-1337')
+CVSS Score 3 for CVE-2016-1337
+CVE score is: 
+                                                8.1
+                                            
+Severity for is: High
+ CVSS Score 2 for CVE-2016-1337
+CVE score is: 
+                                                4.3
+                                            
+Severity for is: MEDIUM
+('CVE Details for', 'CVE-2016-1338')
+CVSS Score 3 for CVE-2016-1338
+CVE score is: 
+                                                6.5
+                                            
+Severity for is: Medium
+ CVSS Score 2 for CVE-2016-1338
+CVE score is: 
+                                                8.0
+                                            
+Severity for is: HIGH
+('CVE Details for', 'CVE-2016-1339')
+CVSS Score 3 for CVE-2016-1339
+CVE score is: 
+                                                7.8
+                                            
+Severity for is: High
+ CVSS Score 2 for CVE-2016-1339
+CVE score is: 
+                                                7.2
+                                            
+Severity for is: HIGH
+('CVE Details for', 'CVE-2016-1340')
+CVSS Score 3 for CVE-2016-1340
+CVE score is: 
+                                                8.4
+                                            
+Severity for is: High
+ CVSS Score 2 for CVE-2016-1340
+CVE score is: 
+                                                7.2
+                                            
+Severity for is: HIGH
+('CVE Details for', 'CVE-2016-1341')
+CVSS Score 3 for CVE-2016-1341
+CVE score is: 
+                                                9.8
+                                            
+Severity for is: Critical
+ CVSS Score 2 for CVE-2016-1341
+CVE score is: 
+                                                6.9
+                                            
+Severity for is: MEDIUM
+
+root@B3astPad:/data/tools/cve2rating# cat cves.txt 
+CVE-2016-1337
+CVE-2016-1338
+CVE-2016-1339
+CVE-2016-1340
+CVE-2016-1341
+```
+
 Edits and pull request are always welcome... :)
 S3curityB3ast
