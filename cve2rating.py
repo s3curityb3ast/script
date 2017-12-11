@@ -10,23 +10,28 @@ soup = BeautifulSoup(page.text, 'html.parser')
 
 
 #For CVSS Score 3
-
-print 'CVSS Score 3 for', (cve)
-score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln3CvssPanel"})
-severity =  score.find('span')
-sev = severity.get_text()
-cvss3score =  score.find('a')
-score = cvss3score.get_text()
-print 'CVE score is:',(score)
-print 'Severity for is:',(sev)
+try:
+    print 'CVSS Score 3 for', (cve)
+    score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln3CvssPanel"})
+    severity =  score.find('span')
+    sev = severity.get_text()
+    cvss3score =  score.find('a')
+    score = cvss3score.get_text()
+    print 'CVSS3 score is:',(score)
+    print 'CVSS3 Severity is:',(sev)
+except AttributeError:
+    print "Opps..! CVE Not found in Database"
+        
 
 #for CVSS Score 2
-
-print ' CVSS Score 2 for', (cve)
-score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln2CvssPanel"})
-severity =  score.find('span')
-sev = severity.get_text()
-cvss3score =  score.find('a')
-score = cvss3score.get_text()
-print 'CVE score is:',(score)
-print 'Severity for is:',(sev)
+try:
+    print ' CVSS Score 2 for', (cve)
+    score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln2CvssPanel"})
+    severity =  score.find('span')
+    sev = severity.get_text()
+    cvss3score =  score.find('a')
+    score = cvss3score.get_text()
+    print 'CVSS2 score is:',(score)
+    print 'CVSS2 Severity  is:',(sev)
+except AttributeError:
+    print "Opps..! CVE Not found in Database"
