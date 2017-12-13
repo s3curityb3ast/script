@@ -17,8 +17,10 @@ try:
     sev = severity.get_text()
     cvss3score =  score.find('a')
     score = cvss3score.get_text()
+    exp = soup.find('dd',attrs={u'data-testid': u'vuln-cvssv3-av'}).get_text()
     print 'CVSS3 score is:',(score)
     print 'CVSS3 Severity is:',(sev)
+    print 'Exploitability for this CVE is:',(exp)
 except AttributeError:
     print "Opps..! CVE Not found in Database"
         
@@ -35,3 +37,4 @@ try:
     print 'CVSS2 Severity  is:',(sev)
 except AttributeError:
     print "Opps..! CVE Not found in Database"
+    
