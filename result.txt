@@ -1,55 +1,35 @@
-('CVE Details for', 'CVE-2016-1337')
-CVSS Score 3 for CVE-2016-1337
-CVE score is: 
-                                                8.1
-                                            
-Severity for is: High
- CVSS Score 2 for CVE-2016-1337
-CVE score is: 
-                                                4.3
-                                            
-Severity for is: MEDIUM
-('CVE Details for', 'CVE-2016-1338')
-CVSS Score 3 for CVE-2016-1338
-CVE score is: 
-                                                6.5
-                                            
-Severity for is: Medium
- CVSS Score 2 for CVE-2016-1338
-CVE score is: 
-                                                8.0
-                                            
-Severity for is: HIGH
-('CVE Details for', 'CVE-2016-1339')
-CVSS Score 3 for CVE-2016-1339
-CVE score is: 
-                                                7.8
-                                            
-Severity for is: High
- CVSS Score 2 for CVE-2016-1339
-CVE score is: 
-                                                7.2
-                                            
-Severity for is: HIGH
-('CVE Details for', 'CVE-2016-1340')
-CVSS Score 3 for CVE-2016-1340
-CVE score is: 
-                                                8.4
-                                            
-Severity for is: High
- CVSS Score 2 for CVE-2016-1340
-CVE score is: 
-                                                7.2
-                                            
-Severity for is: HIGH
-('CVE Details for', 'CVE-2016-1341')
-CVSS Score 3 for CVE-2016-1341
-CVE score is: 
-                                                9.8
-                                            
-Severity for is: Critical
- CVSS Score 2 for CVE-2016-1341
-CVE score is: 
-                                                6.9
-                                            
-Severity for is: MEDIUM
+CVE details for: CVE-2016-1337
+CVSS3 score: 8.1
+CVSS3 severity: HIGH
+CVSS3 Exploitability: 2.2
+CVSS2 score: 4.3
+CVSS2 severity: MEDIUM
+
+CVE details for: CVE-2016-1338
+CVSS3 score: 6.5
+CVSS3 severity: MEDIUM
+CVSS3 Exploitability: 2.8
+CVSS2 score: 8.0
+CVSS2 severity: HIGH
+
+CVE details for: CVE-2016-1339
+CVSS3 score: 7.8
+CVSS3 severity: HIGH
+CVSS3 Exploitability: 1.8
+CVSS2 score: 7.2
+CVSS2 severity: HIGH
+
+CVE details for: CVE-2016-1340
+CVSS3 score: 8.4
+CVSS3 severity: HIGH
+CVSS3 Exploitability: 2.5
+CVSS2 score: 7.2
+CVSS2 severity: HIGH
+
+CVE details for: CVE-2016-1341
+CVSS3 score: 9.8
+CVSS3 severity: CRITICAL
+CVSS3 Exploitability: 3.9
+CVSS2 score: 6.9
+CVSS2 severity: MEDIUM
+
