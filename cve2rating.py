@@ -1,40 +1,49 @@
-#!/usr/bin/python3
-import requests                                                                                                                               
-import os,sys,re
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import os
+import re
+import sys
+import requests
 from bs4 import BeautifulSoup
-cve = sys.argv[1]
-print ('CVE Details for', (cve))
-url = ('https://nvd.nist.gov/vuln/detail/')
-page = requests.get((url)+(cve))
-soup = BeautifulSoup(page.text, 'html.parser')
 
+def logger(f,s):
+    print(s,end='')
+    f.write(s)
 
-#For CVSS Score 3
+if len(sys.argv) < 2:
+    print('Usage: cve2rating.py <file>')
+    sys.exit()
+
+with open(sys.argv[1],'r') as fin:
+    cves = fin.read().splitlines()
+
 try:
-    print 'CVSS Score 3 for', (cve)
-    score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln3CvssPanel"})
-    severity =  score.find('span')
-    sev = severity.get_text()
-    cvss3score =  score.find('a')
-    score = cvss3score.get_text()
-    exp = soup.find('dd',attrs={u'data-testid': u'vuln-cvssv3-av'}).get_text()
-    print 'CVSS3 score is:',(score)
-    print 'CVSS3 Severity is:',(sev)
-    print 'Exploitability for this CVE is:',(exp)
-except AttributeError:
-    print "Opps..! CVE Not found in Database"
-        
+    fout = open('result.txt','a')
 
-#for CVSS Score 2
-try:
-    print ' CVSS Score 2 for', (cve)
-    score = soup.find("div", {"id":"p_lt_WebPartZone1_zoneCenter_pageplaceholder_p_lt_WebPartZone1_zoneCenter_VulnerabilityDetail_VulnFormView_Vuln2CvssPanel"})
-    severity =  score.find('span')
-    sev = severity.get_text()
-    cvss3score =  score.find('a')
-    score = cvss3score.get_text()
-    print 'CVSS2 score is:',(score)
-    print 'CVSS2 Severity  is:',(sev)
-except AttributeError:
-    print "Opps..! CVE Not found in Database"
-    
+    for cve in cves:
+        page = requests.get('https://nvd.nist.gov/vuln/detail/' + cve)
+        soup = BeautifulSoup(page.text, 'html.parser')
+        logger(fout, 'CVE details for: {}\n'.format(cve))
+
+        try:
+            scr = soup.find('span',attrs={u'data-testid': u'vuln-cvssv3-base-score'}).get_text().strip()
+            sev = soup.find('span',attrs={u'data-testid': u'vuln-cvssv3-base-score-severity'}).get_text().strip()
+            exp = soup.find('span',attrs={u'data-testid': u'vuln-cvssv3-exploitability-score'}).get_text().strip()
+            logger(fout, 'CVSS3 score: {}\nCVSS3 severity: {}\nCVSS3 Exploitability: {}\n'.format(scr,sev,exp))
+
+        except AttributeError:
+            print('Oops..! CVSS3 not found in the database')
+
+        try:
+            scr = soup.find('span',attrs={u'data-testid': u'vuln-cvssv2-base-score'}).get_text().strip()
+            sev = soup.find('span',attrs={u'data-testid': u'vuln-cvssv2-base-score-severity'}).get_text().strip()
+            logger(fout, 'CVSS2 score: {}\nCVSS2 severity: {}\n\n'.format(scr,sev))
+
+        except AttributeError:
+            print('Oops..! CVSS2 not found in the database')
+
+except KeyboardInterrupt:
+    print("User interrupt!")
+
+finally:
+    fout.close()

