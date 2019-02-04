@@ -7,5 +7,7 @@
 
 * [wp-account-enumerator.py](https://github.com/s3curityb3ast/script/wiki/wp-account-enumerator) :- A simple tool  which reveal the usernames of a WordPress based site.
 
+* [godirber.sh](https://github.com/s3curityb3ast/script/blob/master/godirber.sh) :- A tool for running gobuster on all enumerated subdoamins.
+
 Edits and pull request are always welcome... :)
 S3curityB3ast
