@@ -9,5 +9,7 @@
 
 * [godirber.sh](https://github.com/s3curityb3ast/script/blob/master/godirber.sh) :- A tool for running gobuster on all enumerated subdoamins.
 
+* [manifester.sh](https://github.com/s3curityb3ast/script/blob/master/manifester.sh) :- A tool which run on all the APK's in current directory and extract all manifest as a Manifester_Output.txt
+
 Edits and pull request are always welcome... :)
 S3curityB3ast
